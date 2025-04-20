@@ -43,7 +43,7 @@ class DashBoardScreen extends StatelessWidget {
         title: const Text("Dashboard"),
         backgroundColor: Colors.green,
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Center(
