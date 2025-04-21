@@ -43,13 +43,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              controller: _controller,
-              decoration: const InputDecoration(
-                labelText: 'Enter your name',
-                border: OutlineInputBorder(),
-              ),
-            ),
+            TextField(controller: _controller),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
