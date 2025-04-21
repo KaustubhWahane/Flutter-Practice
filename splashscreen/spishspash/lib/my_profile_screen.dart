@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 class MyProfileScreen extends StatelessWidget {
-  const MyProfileScreen({super.key});
+  final String username;
+
+  const MyProfileScreen({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Text(
-          'Suswagatam',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+          'Welcome $username',
+          style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
     );
