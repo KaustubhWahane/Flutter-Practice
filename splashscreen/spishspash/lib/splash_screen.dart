@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'dashboard_screen.dart';
+import 'main.dart'; // To access DashboardScreen
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
