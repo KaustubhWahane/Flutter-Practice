@@ -41,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ElevatedButton(
-        child: Text("Click me sir!"),
         onPressed: callback,
+        child: Text("Click me sir!"),
         //  print("Normal Clicked!");
       ),
     );
