@@ -43,24 +43,45 @@ class DBHelper {
   }
 
   // Add a note to the database
-  Future<bool> addNote({
-    required String title,
-    required String description,
-  }) async {
+  Future<bool> addNote({required String mTitle, required String mDesc}) async {
     var db = await getDB();
     int rowsAffected = await db.insert(TABLE_NOTE, {
-      COLUMN_NOTE_TITLE: title,
-      COLUMN_NOTE_DESC: description,
+      COLUMN_NOTE_TITLE: mTitle,
+      COLUMN_NOTE_DESC: mDesc,
     });
     return rowsAffected > 0;
   }
 
-  // Reading the data
+  // Get all notes from the database
   Future<List<Map<String, dynamic>>> getAllNotes() async {
     var db = await getDB();
-    // Select * from the table
     List<Map<String, dynamic>> mData = await db.query(TABLE_NOTE);
-
     return mData;
+  }
+
+  //  Update a note
+  Future<bool> updateNote({
+    required int sno,
+    required String title,
+    required String desc,
+  }) async {
+    var db = await getDB();
+    int rowsAffected = await db.update(
+      TABLE_NOTE,
+      {COLUMN_NOTE_TITLE: title, COLUMN_NOTE_DESC: desc},
+      where: "$COLUMN_NOTE_SNO = ?",
+      whereArgs: [sno],
+    );
+    return rowsAffected > 0;
+  }
+
+  Future<bool> deleteNote({required int sno}) async {
+    var db = await getDB();
+    int rowsAffected = await db.delete(
+      DBHelper.TABLE_NOTE,
+      where: "${DBHelper.COLUMN_NOTE_SNO} = ?",
+      whereArgs: [sno],
+    );
+    return rowsAffected > 0;
   }
 }
